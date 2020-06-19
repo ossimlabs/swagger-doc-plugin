@@ -5,6 +5,14 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.jvm.tasks.Jar
 import org.reflections.Reflections
+import io.swagger.models.Swagger
+import io.swagger.servlet.Reader
+
+import swagger.SwaggerService
+
+import javax.annotation.processing.AbstractProcessor
+import javax.annotation.processing.RoundEnvironment
+import javax.lang.model.element.TypeElement
 
 import java.util.jar.JarEntry
 import java.util.jar.JarFile
