@@ -5,6 +5,8 @@ import org.junit.Test
 class TestSwaggerApi {
     @Test
     void TestClassReflection() {
-        new GreetingPlugin().getSwaggerAPIClasses().contains(TestApi.class)
+        Set<Class> res = new GreetingPlugin().getSwaggerAPIClasses()
+        assert res.contains(TestApi.class)
+        res.forEach { println(it) }
     }
 }

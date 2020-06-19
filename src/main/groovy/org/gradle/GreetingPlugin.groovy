@@ -3,19 +3,32 @@ package org.gradle
 import io.swagger.annotations.Api
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.jvm.tasks.Jar
 import org.reflections.Reflections
-import org.reflections.scanners.SubTypesScanner
-import org.reflections.scanners.TypeAnnotationsScanner
+
+import java.util.jar.JarEntry
+import java.util.jar.JarFile
 
 class GreetingPlugin implements Plugin<Project> {
     String prefix
-    private Reflections reflections = new Reflections("omar", new TypeAnnotationsScanner(), new SubTypesScanner())
 
     @Override
     void apply(Project project) {
-        project.task("testSwaggerStuff") {
+        project.apply plugin: 'java'
+        project.task(type: Jar, "fatJar") {
+            dependsOn("assemble")
+            archiveBaseName = 'fatjar'
+            from { project.configurations.compile.collect { it.isDirectory() ? it : project.zipTree(it) } }
+            with project.jar
+        }
+
+
+        project.task("generateSwaggerDocs") {
+            dependsOn("fatJar")
+
             doFirst {
-                getSwaggerAPIClasses("omar").forEach { println(it) }
+                String fatJarPath = (project.tasks.getByName("fatJar") as Jar).archiveFile.get().asFile.path
+                getSwaggerAPIClasses("omar", fatJarPath).forEach { println(it) }
                 // TODO: Add swagger doc generation
             }
             doLast {
@@ -27,8 +40,30 @@ class GreetingPlugin implements Plugin<Project> {
     /**
      * @param prefix Package prefix, to be used with ClasspathHelper.forPackage(String, ClassLoader...) )}* @return
      */
-    public Set<Class<?>> getSwaggerAPIClasses(String prefix) {
-        return reflections.getTypesAnnotatedWith(Api.class);
+    Set<Class> getSwaggerAPIClasses(String prefix, String jarPath) {
+        JarFile jarFile = new JarFile(jarPath)
+        Enumeration<JarEntry> e = jarFile.entries()
+
+        URL[] urls = [new URL("jar:file:$jarPath!/")]
+        URLClassLoader cl = URLClassLoader.newInstance(urls)
+        while (e.hasMoreElements()) {
+            JarEntry je = e.nextElement()
+            if (je.isDirectory() || !je.getName().endsWith(".class")) {
+                continue
+            }
+            // -6 because of .class
+            String className = je.getName().substring(0, je.getName().length() - 6)
+            className = className.replace('/', '.')
+            println("Found class: $className")
+            try {
+                Class c = cl.loadClass(className)
+            } catch (Throwable exception) {
+                println("Skipping: $className - ${exception.class.name}: $exception.message")
+            }
+        }
+
+        Reflections reflections = new Reflections(cl)
+        return reflections.getTypesAnnotatedWith(Api.class)
     }
 }
 
