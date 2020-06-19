@@ -28,6 +28,7 @@ class GreetingPlugin implements Plugin<Project> {
 
             doFirst {
                 String fatJarPath = (project.tasks.getByName("fatJar") as Jar).archiveFile.get().asFile.path
+                // TODO: Remove hard coded prefix and use task configuration instead.
                 getSwaggerAPIClasses("omar", fatJarPath).forEach { println(it) }
                 // TODO: Add swagger doc generation
             }

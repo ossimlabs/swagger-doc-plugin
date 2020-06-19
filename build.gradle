@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'io.ossim.swagger'
-version '0.3-mylocal3'
+version '0.4'
 
 repositories {
     mavenCentral()
