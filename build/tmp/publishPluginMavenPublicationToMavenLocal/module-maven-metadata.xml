@@ -6,8 +6,9 @@
     <latest>0.4-local</latest>
     <release>0.4-local</release>
     <versions>
+      <version>0.3-local</version>
       <version>0.4-local</version>
     </versions>
-    <lastUpdated>20200622143851</lastUpdated>
+    <lastUpdated>20200622173625</lastUpdated>
   </versioning>
 </metadata>

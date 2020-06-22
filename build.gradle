@@ -16,7 +16,7 @@ dependencies {
     implementation("io.swagger:swagger-core:1.5.24")
     implementation("io.swagger:swagger-annotations:1.5.24")
     implementation("org.reflections:reflections:0.9.12")
-//    implementation("org.grails.plugins:swagger:1.0.1")
+    implementation("com.google.guava:guava:29.0-jre")
     compile group: 'org.webjars', name: 'swagger-ui', version: '3.24.0'
     compile group: 'io.swagger', name: 'swagger-models', version: '1.5.24'
     compile group: 'io.swagger', name: 'swagger-servlet', version: '1.5.24'
@@ -42,16 +42,6 @@ publishing {
                 url = uploadMavenRepoUrl
                 username = uploadMavenRepoUsername
                 password = uploadMavenRepoPassword
-            }
-        }
-    }
-}
-
-if ( System.getenv('O2_INLINE_BUILD') ) {
-    grails {
-        plugins {
-            if ( System.getenv('O2_INLINE_BUILD') ) {
-                compile project(":omar-core-plugin")
             }
         }
     }
