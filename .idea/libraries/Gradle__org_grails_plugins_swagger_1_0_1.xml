@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: org.grails.plugins:swagger:1.0.1">
+    <CLASSES>
+      <root url="file:///Could not find org.grails.plugins:swagger:1.0.1.&#10;Required by:&#10;    project :" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.grails.plugins/swagger/1.0.1/43c3138b05615a5e70f99ae9cc98937c3a87cea1/swagger-1.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.grails.plugins/swagger/1.0.1/43e41d745f7cb396fa9b5b889a9934c3b87aa77d/swagger-1.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

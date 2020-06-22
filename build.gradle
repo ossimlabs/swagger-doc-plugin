@@ -2,14 +2,13 @@ plugins {
     id 'groovy'
     id 'java-gradle-plugin'
     id 'maven-publish'
-
 }
-
 group 'io.ossim.swagger'
-version '0.4'
+version '0.4-local'
 
 repositories {
     mavenCentral()
+    maven { url "https://dl.bintray.com/ajay-kumar/plugins" }
 }
 
 dependencies {
@@ -22,15 +21,12 @@ dependencies {
     compile group: 'io.swagger', name: 'swagger-models', version: '1.5.24'
     compile group: 'io.swagger', name: 'swagger-servlet', version: '1.5.24'
     compile group: 'io.swagger', name: 'swagger-models', version: '1.5.24'
-
-//    compile ( 'org.grails.plugins:swagger:1.0.1' ) {
-//        exclude module: 'swagger-models'
-//        exclude module: 'swagger-servlet'
-//        exclude module: 'swagger-ui'
-//    }
+    compile ( 'org.grails.plugins:swagger:1.0.1' ) {
+        exclude module: 'swagger-models'
+        exclude module: 'swagger-servlet'
+        exclude module: 'swagger-ui'
     }
-
-
+}
 gradlePlugin {
     plugins {
         swaggerDocPlugin {
@@ -39,7 +35,6 @@ gradlePlugin {
         }
     }
 }
-
 publishing {
     repositories {
         maven {

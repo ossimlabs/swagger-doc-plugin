@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestSwaggerApi" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-19T17:25:01" hostname="McKenzies-MacBook-Pro.local" time="0.443">
-  <properties/>
-  <testcase name="TestClassReflection" classname="TestSwaggerApi" time="0.443"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

@@ -1,0 +1,170 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "io.ossim.swagger",
+    "module": "SwaggerDocPlugin",
+    "version": "0.4-local",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.3",
+      "buildId": "up2reljulreqdioqzgrr2kiami"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.webjars",
+          "module": "swagger-ui",
+          "version": {
+            "requires": "3.24.0"
+          }
+        },
+        {
+          "group": "io.swagger",
+          "module": "swagger-models",
+          "version": {
+            "requires": "1.5.24"
+          }
+        },
+        {
+          "group": "io.swagger",
+          "module": "swagger-servlet",
+          "version": {
+            "requires": "1.5.24"
+          }
+        },
+        {
+          "group": "org.grails.plugins",
+          "module": "swagger",
+          "version": {
+            "requires": "1.0.1"
+          },
+          "excludes": [
+            {
+              "group": "*",
+              "module": "swagger-servlet"
+            },
+            {
+              "group": "*",
+              "module": "swagger-models"
+            },
+            {
+              "group": "*",
+              "module": "swagger-ui"
+            }
+          ]
+        }
+      ],
+      "files": [
+        {
+          "name": "SwaggerDocPlugin-0.4-local.jar",
+          "url": "SwaggerDocPlugin-0.4-local.jar",
+          "size": 15787,
+          "sha512": "f4ef2943d75b13a280cdf715539c3f8c8bd167a54492f6e4072b9f3b1bb0f15187a5a441092304a505d88ede6f902caaff61ce96f2dda708e8ae8d20c25684fe",
+          "sha256": "182f7e75f8d1dfa1a9a0ca749266ad8e7e1162c22a6b5e57567ce14c613d2b7a",
+          "sha1": "4c92fd91cd6ba3448af3e1411106c924015e727c",
+          "md5": "a161f1d2d6cf251609671e99c3b30579"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "io.swagger",
+          "module": "swagger-core",
+          "version": {
+            "requires": "1.5.24"
+          }
+        },
+        {
+          "group": "io.swagger",
+          "module": "swagger-annotations",
+          "version": {
+            "requires": "1.5.24"
+          }
+        },
+        {
+          "group": "org.reflections",
+          "module": "reflections",
+          "version": {
+            "requires": "0.9.12"
+          }
+        },
+        {
+          "group": "org.webjars",
+          "module": "swagger-ui",
+          "version": {
+            "requires": "3.24.0"
+          }
+        },
+        {
+          "group": "io.swagger",
+          "module": "swagger-models",
+          "version": {
+            "requires": "1.5.24"
+          }
+        },
+        {
+          "group": "io.swagger",
+          "module": "swagger-servlet",
+          "version": {
+            "requires": "1.5.24"
+          }
+        },
+        {
+          "group": "org.grails.plugins",
+          "module": "swagger",
+          "version": {
+            "requires": "1.0.1"
+          },
+          "excludes": [
+            {
+              "group": "*",
+              "module": "swagger-servlet"
+            },
+            {
+              "group": "*",
+              "module": "swagger-models"
+            },
+            {
+              "group": "*",
+              "module": "swagger-ui"
+            }
+          ]
+        }
+      ],
+      "files": [
+        {
+          "name": "SwaggerDocPlugin-0.4-local.jar",
+          "url": "SwaggerDocPlugin-0.4-local.jar",
+          "size": 15787,
+          "sha512": "f4ef2943d75b13a280cdf715539c3f8c8bd167a54492f6e4072b9f3b1bb0f15187a5a441092304a505d88ede6f902caaff61ce96f2dda708e8ae8d20c25684fe",
+          "sha256": "182f7e75f8d1dfa1a9a0ca749266ad8e7e1162c22a6b5e57567ce14c613d2b7a",
+          "sha1": "4c92fd91cd6ba3448af3e1411106c924015e727c",
+          "md5": "a161f1d2d6cf251609671e99c3b30579"
+        }
+      ]
+    }
+  ]
+}
