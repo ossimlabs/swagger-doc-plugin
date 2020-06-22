@@ -14,6 +14,7 @@ import java.util.concurrent.*
 
 class GreetingPlugin implements Plugin<Project> {
     String prefix
+
     @Override
     void apply(Project project) {
         project.apply plugin: 'java'
@@ -28,15 +29,13 @@ class GreetingPlugin implements Plugin<Project> {
             doFirst {
                 String fatJarPath = (project.tasks.getByName("fatJar") as Jar).archiveFile.get().asFile.path
                 // TODO: Remove hard coded prefix and use task configuration instead.
-                getSwaggerAPIClasses("omar", fatJarPath).forEach {
-                    println(it)
-                    Swagger swagger = new Swagger()
+                Swagger swagger = new Swagger()
+                Set<Class> classes = getSwaggerAPIClasses("omar", fatJarPath)
+                Reader.read(swagger, classes)
+                String res = SwaggerService.getJsonDocument(swagger)
+                println res
 
-                    Reader.read(swagger, it)
-                    String res = SwaggerService.getJsonDocument(swagger)
-                    println res
-                }
-                 // TODO: Add swagger doc generation
+                // TODO: Add swagger doc generation
             }
             doLast {
                 println("Hello world")
