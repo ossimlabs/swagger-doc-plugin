@@ -34,20 +34,6 @@
       <artifactId>swagger</artifactId>
       <version>1.0.1</version>
       <scope>compile</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>swagger-servlet</artifactId>
-          <groupId>*</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>swagger-models</artifactId>
-          <groupId>*</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>swagger-ui</artifactId>
-          <groupId>*</groupId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <dependency>
       <groupId>io.swagger</groupId>

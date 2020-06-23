@@ -20,18 +20,17 @@ dependencies {
     compile group: 'org.webjars', name: 'swagger-ui', version: '3.24.0'
     compile group: 'io.swagger', name: 'swagger-models', version: '1.5.24'
     compile group: 'io.swagger', name: 'swagger-servlet', version: '1.5.24'
-    compile group: 'io.swagger', name: 'swagger-models', version: '1.5.24'
-    compile ( 'org.grails.plugins:swagger:1.0.1' ) {
-        exclude module: 'swagger-models'
-        exclude module: 'swagger-servlet'
-        exclude module: 'swagger-ui'
-    }
+    compile ( 'org.grails.plugins:swagger:1.0.1' ) //{
+//        exclude module: 'swagger-models'
+//        exclude module: 'swagger-servlet'
+//        exclude module: 'swagger-ui'
+   // }
 }
 gradlePlugin {
     plugins {
         swaggerDocPlugin {
             id = 'io.ossim.swagger.doc'
-            implementationClass = 'org.gradle.GreetingPlugin'
+            implementationClass = 'io.ossim.swagger.SwaggerDocPlugin'
         }
     }
 }

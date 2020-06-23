@@ -1,23 +1,31 @@
-package org.gradle
+package io.ossim.swagger
 
+import com.fasterxml.jackson.core.JsonProcessingException
 import io.swagger.annotations.Api
+import io.swagger.util.Json
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.internal.classloader.ClasspathHasher
 import org.gradle.jvm.tasks.Jar
 import org.reflections.Reflections
 import io.swagger.models.Swagger
 import io.swagger.servlet.Reader
+import org.reflections.util.ClasspathHelper
+import org.reflections.util.ConfigurationBuilder
 import swagger.SwaggerService
 import java.util.jar.JarEntry
 import java.util.jar.JarFile
-import java.util.concurrent.*
 
-class GreetingPlugin implements Plugin<Project> {
+class SwaggerDocPlugin implements Plugin<Project> {
     String prefix
 
     @Override
     void apply(Project project) {
         project.apply plugin: 'java'
+        SwaggerDocExtension extension = project.getExtensions()
+                .create("swaggerDoc", SwaggerDocExtension.class)
+        prefix = extension.getPrefix()
+
         project.task(type: Jar, "fatJar") {
             dependsOn("assemble")
             archiveBaseName = 'fatjar'
@@ -31,9 +39,26 @@ class GreetingPlugin implements Plugin<Project> {
                 // TODO: Remove hard coded prefix and use task configuration instead.
                 Swagger swagger = new Swagger()
                 Set<Class> classes = getSwaggerAPIClasses("omar", fatJarPath)
+                println prefix
+                println "Swagger Spec Classes:"
+                for(Class c:classes) {
+                    println c
+                }
                 Reader.read(swagger, classes)
-                String res = SwaggerService.getJsonDocument(swagger)
-                println res
+                //println
+                //String json = Json.mapper().writeValueAsString(swagger)
+                //println json
+                //String res = SwaggerService.getJsonDocument(swagger)
+                //println res
+                String swaggerJson = null
+                if (swagger) {
+                    try {
+                        swaggerJson = Json.mapper().writeValueAsString(swagger)
+                    } catch (JsonProcessingException e) {
+                        e.printStackTrace()
+                    }
+                }
+                println swaggerJson
 
                 // TODO: Add swagger doc generation
             }
@@ -60,16 +85,15 @@ class GreetingPlugin implements Plugin<Project> {
             // -6 because of .class
             String className = je.getName().substring(0, je.getName().length() - 6)
             className = className.replace('/', '.')
-            println("Found class: $className")
+            //println("Found class: $className")
             try {
                 Class c = cl.loadClass(className)
             } catch (Throwable exception) {
-                println("Skipping: $className - ${exception.class.name}: $exception.message")
+                //println("Skipping: $className - ${exception.class.name}: $exception.message")
             }
         }
         Reflections reflections = new Reflections(cl)
         return reflections.getTypesAnnotatedWith(Api.class)
     }
 }
-// TODO: Change names of plugin, package, etc
-//  Add configurable prefix value under extension (see gradle plugin development "extension")
+// TODO: Add configurable prefix value under extension (see gradle plugin development "extension")

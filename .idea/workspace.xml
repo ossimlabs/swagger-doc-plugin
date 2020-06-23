@@ -86,6 +86,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.gradle" />
+    </key>
+  </component>
   <component name="RunManager" selected="Gradle.swagger-doc-plugin [publishToMavenLocal]">
     <configuration name="TestSwaggerApi.TestClassReflection" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -163,8 +168,28 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="swagger-doc-plugin [publish]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="publish" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.swagger-doc-plugin [publish]" />
         <item itemvalue="Gradle.swagger-doc-plugin [build]" />
         <item itemvalue="Gradle.swagger-doc-plugin [assemble]" />
         <item itemvalue="Gradle.swagger-doc-plugin [publishToMavenLocal]" />
@@ -210,26 +235,34 @@
     <option name="LAST_COMMIT_MESSAGE" value="build.gradle" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="912" height="256" key="GridCell.Tab.0.bottom" timestamp="1592848722006">
-      <screen x="0" y="27" width="2880" height="1053" />
+    <state width="912" height="290" key="GridCell.Tab.0.bottom" timestamp="1592941949154">
+      <screen x="0" y="27" width="2760" height="1053" />
     </state>
     <state width="1627" height="275" key="GridCell.Tab.0.bottom/0.23.1792.1036@0.23.1792.1036" timestamp="1592837539531" />
-    <state width="912" height="256" key="GridCell.Tab.0.bottom/0.27.2880.1053@0.27.2880.1053" timestamp="1592848722006" />
-    <state width="912" height="256" key="GridCell.Tab.0.center" timestamp="1592848722005">
-      <screen x="0" y="27" width="2880" height="1053" />
+    <state width="912" height="256" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1592920552101" />
+    <state width="912" height="290" key="GridCell.Tab.0.bottom/0.27.2760.1053@0.27.2760.1053" timestamp="1592941949154" />
+    <state width="912" height="256" key="GridCell.Tab.0.bottom/0.27.2880.1053@0.27.2880.1053" timestamp="1592856417018" />
+    <state width="912" height="290" key="GridCell.Tab.0.center" timestamp="1592941949154">
+      <screen x="0" y="27" width="2760" height="1053" />
     </state>
     <state width="1627" height="275" key="GridCell.Tab.0.center/0.23.1792.1036@0.23.1792.1036" timestamp="1592837539530" />
-    <state width="912" height="256" key="GridCell.Tab.0.center/0.27.2880.1053@0.27.2880.1053" timestamp="1592848722005" />
-    <state width="912" height="256" key="GridCell.Tab.0.left" timestamp="1592848722005">
-      <screen x="0" y="27" width="2880" height="1053" />
+    <state width="912" height="256" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1592920552101" />
+    <state width="912" height="290" key="GridCell.Tab.0.center/0.27.2760.1053@0.27.2760.1053" timestamp="1592941949154" />
+    <state width="912" height="256" key="GridCell.Tab.0.center/0.27.2880.1053@0.27.2880.1053" timestamp="1592856417017" />
+    <state width="912" height="290" key="GridCell.Tab.0.left" timestamp="1592941949154">
+      <screen x="0" y="27" width="2760" height="1053" />
     </state>
     <state width="1627" height="275" key="GridCell.Tab.0.left/0.23.1792.1036@0.23.1792.1036" timestamp="1592837539530" />
-    <state width="912" height="256" key="GridCell.Tab.0.left/0.27.2880.1053@0.27.2880.1053" timestamp="1592848722005" />
-    <state width="912" height="256" key="GridCell.Tab.0.right" timestamp="1592848722006">
-      <screen x="0" y="27" width="2880" height="1053" />
+    <state width="912" height="256" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1592920552101" />
+    <state width="912" height="290" key="GridCell.Tab.0.left/0.27.2760.1053@0.27.2760.1053" timestamp="1592941949154" />
+    <state width="912" height="256" key="GridCell.Tab.0.left/0.27.2880.1053@0.27.2880.1053" timestamp="1592856417016" />
+    <state width="912" height="290" key="GridCell.Tab.0.right" timestamp="1592941949154">
+      <screen x="0" y="27" width="2760" height="1053" />
     </state>
     <state width="1627" height="275" key="GridCell.Tab.0.right/0.23.1792.1036@0.23.1792.1036" timestamp="1592837539531" />
-    <state width="912" height="256" key="GridCell.Tab.0.right/0.27.2880.1053@0.27.2880.1053" timestamp="1592848722006" />
+    <state width="912" height="256" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1592920552101" />
+    <state width="912" height="290" key="GridCell.Tab.0.right/0.27.2760.1053@0.27.2760.1053" timestamp="1592941949154" />
+    <state width="912" height="256" key="GridCell.Tab.0.right/0.27.2880.1053@0.27.2880.1053" timestamp="1592856417017" />
     <state x="652" y="267" key="RollbackChangesDialog" timestamp="1592585448273">
       <screen x="0" y="23" width="1792" height="1036" />
     </state>
