@@ -9,7 +9,6 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.jvm.tasks.Jar
 import org.reflections.Reflections
-
 import java.util.jar.JarEntry
 import java.util.jar.JarFile
 
@@ -19,9 +18,8 @@ class SwaggerDocPlugin implements Plugin<Project> {
     @Override
     void apply(Project project) {
         project.apply plugin: 'java'
-        SwaggerDocExtension extension = project.getExtensions()
-                .create("swaggerDoc", SwaggerDocExtension.class)
-        prefix = extension.getPrefix()
+        def extension = project.extensions.create("swaggerDoc", SwaggerDocExtension)
+        prefix = extension.prefix
 
         project.task(type: Jar, "fatJar") {
             dependsOn("assemble")
@@ -34,14 +32,9 @@ class SwaggerDocPlugin implements Plugin<Project> {
             doFirst {
                 try { throw new RuntimeException("DEBUG") } catch (e) {/* do nothing */}
                 String fatJarPath = (project.tasks.getByName("fatJar") as Jar).archiveFile.get().asFile.path
-                // TODO: Remove hard coded prefix and use task configuration instead.
                 Swagger swagger = new Swagger()
                 Set<Class> classes = getSwaggerAPIClasses("omar", fatJarPath)
                 println prefix
-                println "Swagger Spec Classes:"
-                for(Class c: classes) {
-                    println c
-                }
                 Reader.read(swagger, classes)
                 String swaggerJson = null
                 if (swagger) {
@@ -51,17 +44,12 @@ class SwaggerDocPlugin implements Plugin<Project> {
                         e.printStackTrace()
                     }
                 }
-                println swaggerJson
-
-                new File(project.buildDir,'swaggerJson.Json').withWriter('utf-8') { writer ->
+                new File(project.buildDir,'swaggerSpec.json').withWriter('utf-8') { writer ->
                     writer.writeLine swaggerJson
                 }
-
-
-                // TODO: Add swagger doc generation
             }
             doLast {
-                println("Hello world")
+                println("Look for the SwaggerSpec in the build directory")
             }
         }
     }
@@ -91,7 +79,6 @@ class SwaggerDocPlugin implements Plugin<Project> {
             }
         }
         Reflections reflections = new Reflections(cl)
-        return reflections.getTypesAnnotatedWith(Api.class)
+        return reflections.getTypesAnnotatedWith(Api.class).collect {it.package.name.startsWith(prefix) ? it : void}.toSet()
     }
 }
-// TODO: Add configurable prefix value under extension (see gradle plugin development "extension")

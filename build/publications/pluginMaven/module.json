@@ -1,0 +1,149 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "io.ossim.swagger",
+    "module": "SwaggerDocPlugin",
+    "version": "0.4-local",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.3",
+      "buildId": "vhnvtsxg35akbbo5ivf5m5yi3i"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.webjars",
+          "module": "swagger-ui",
+          "version": {
+            "requires": "3.24.0"
+          }
+        },
+        {
+          "group": "io.swagger",
+          "module": "swagger-models",
+          "version": {
+            "requires": "1.5.24"
+          }
+        },
+        {
+          "group": "io.swagger",
+          "module": "swagger-servlet",
+          "version": {
+            "requires": "1.5.24"
+          }
+        },
+        {
+          "group": "org.grails.plugins",
+          "module": "swagger",
+          "version": {
+            "requires": "1.0.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "SwaggerDocPlugin-0.4-local.jar",
+          "url": "SwaggerDocPlugin-0.4-local.jar",
+          "size": 19874,
+          "sha512": "eafe0d6bf5c618992a2feef7adf9cec118da566f5e0367e1ddb3af88b0b86146bdf6cf18dd7f46597692e5a3689ae6f1b2e7e89dc55c2ec23c371e876183f51e",
+          "sha256": "d6817ac5ba2f06272cd3514de74ab94a1f95cca653512078e5bc01bf88246c49",
+          "sha1": "1a3eebcdee8369e800d298c51411814cac5cff20",
+          "md5": "6d4a135c87d129c376d52b7de94b0d0b"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "io.swagger",
+          "module": "swagger-core",
+          "version": {
+            "requires": "1.5.24"
+          }
+        },
+        {
+          "group": "io.swagger",
+          "module": "swagger-annotations",
+          "version": {
+            "requires": "1.5.24"
+          }
+        },
+        {
+          "group": "org.reflections",
+          "module": "reflections",
+          "version": {
+            "requires": "0.9.12"
+          }
+        },
+        {
+          "group": "com.google.guava",
+          "module": "guava",
+          "version": {
+            "requires": "29.0-jre"
+          }
+        },
+        {
+          "group": "org.webjars",
+          "module": "swagger-ui",
+          "version": {
+            "requires": "3.24.0"
+          }
+        },
+        {
+          "group": "io.swagger",
+          "module": "swagger-models",
+          "version": {
+            "requires": "1.5.24"
+          }
+        },
+        {
+          "group": "io.swagger",
+          "module": "swagger-servlet",
+          "version": {
+            "requires": "1.5.24"
+          }
+        },
+        {
+          "group": "org.grails.plugins",
+          "module": "swagger",
+          "version": {
+            "requires": "1.0.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "SwaggerDocPlugin-0.4-local.jar",
+          "url": "SwaggerDocPlugin-0.4-local.jar",
+          "size": 19874,
+          "sha512": "eafe0d6bf5c618992a2feef7adf9cec118da566f5e0367e1ddb3af88b0b86146bdf6cf18dd7f46597692e5a3689ae6f1b2e7e89dc55c2ec23c371e876183f51e",
+          "sha256": "d6817ac5ba2f06272cd3514de74ab94a1f95cca653512078e5bc01bf88246c49",
+          "sha1": "1a3eebcdee8369e800d298c51411814cac5cff20",
+          "md5": "6d4a135c87d129c376d52b7de94b0d0b"
+        }
+      ]
+    }
+  ]
+}
