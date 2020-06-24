@@ -43,11 +43,6 @@ class SwaggerDocPlugin implements Plugin<Project> {
                     println c
                 }
                 Reader.read(swagger, classes)
-                //println
-                //String json = Json.mapper().writeValueAsString(swagger)
-                //println json
-                //String res = SwaggerService.getJsonDocument(swagger)
-                //println res
                 String swaggerJson = null
                 if (swagger) {
                     try {
@@ -57,6 +52,11 @@ class SwaggerDocPlugin implements Plugin<Project> {
                     }
                 }
                 println swaggerJson
+
+                new File(project.buildDir,'swaggerJson.Json').withWriter('utf-8') { writer ->
+                    writer.writeLine swaggerJson
+                }
+
 
                 // TODO: Add swagger doc generation
             }
