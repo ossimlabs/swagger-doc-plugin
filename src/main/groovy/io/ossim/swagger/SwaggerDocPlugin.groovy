@@ -19,7 +19,6 @@ class SwaggerDocPlugin implements Plugin<Project> {
     void apply(Project project) {
         project.apply plugin: 'java'
         def extension = project.extensions.create("swaggerDoc", SwaggerDocExtension)
-        prefix = extension.prefix
 
         project.task(type: Jar, "fatJar") {
             dependsOn("assemble")
@@ -33,8 +32,8 @@ class SwaggerDocPlugin implements Plugin<Project> {
                 try { throw new RuntimeException("DEBUG") } catch (e) {/* do nothing */}
                 String fatJarPath = (project.tasks.getByName("fatJar") as Jar).archiveFile.get().asFile.path
                 Swagger swagger = new Swagger()
-                Set<Class> classes = getSwaggerAPIClasses("omar", fatJarPath)
-                println prefix
+                prefix = extension.prefix
+                Set<Class> classes = getSwaggerAPIClasses(prefix, fatJarPath)
                 Reader.read(swagger, classes)
                 String swaggerJson = null
                 if (swagger) {

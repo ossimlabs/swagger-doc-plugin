@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.3",
-      "buildId": "vhnvtsxg35akbbo5ivf5m5yi3i"
+      "buildId": "ixxaovkwunh2td4da7hioqiwmq"
     }
   },
   "variants": [
@@ -58,11 +58,11 @@
         {
           "name": "SwaggerDocPlugin-0.4-local.jar",
           "url": "SwaggerDocPlugin-0.4-local.jar",
-          "size": 19874,
-          "sha512": "eafe0d6bf5c618992a2feef7adf9cec118da566f5e0367e1ddb3af88b0b86146bdf6cf18dd7f46597692e5a3689ae6f1b2e7e89dc55c2ec23c371e876183f51e",
-          "sha256": "d6817ac5ba2f06272cd3514de74ab94a1f95cca653512078e5bc01bf88246c49",
-          "sha1": "1a3eebcdee8369e800d298c51411814cac5cff20",
-          "md5": "6d4a135c87d129c376d52b7de94b0d0b"
+          "size": 19991,
+          "sha512": "a20b2212a3592ad730da80acb2123110027f60e4ed26abd15e031c088c534820f07c260fe7f2395d0128fa5ebb5c454a13e531172c92c39186ff25390f30f1f5",
+          "sha256": "8ec37f8f83b8b103a8b2e89e9e57ce3e5d9ebd02311878e703e212b126e8c329",
+          "sha1": "df88ab6374a0309a9aa8540431d53167c517d646",
+          "md5": "2b785f5699ae575d6d7ec478ec0457a4"
         }
       ]
     },
@@ -137,11 +137,11 @@
         {
           "name": "SwaggerDocPlugin-0.4-local.jar",
           "url": "SwaggerDocPlugin-0.4-local.jar",
-          "size": 19874,
-          "sha512": "eafe0d6bf5c618992a2feef7adf9cec118da566f5e0367e1ddb3af88b0b86146bdf6cf18dd7f46597692e5a3689ae6f1b2e7e89dc55c2ec23c371e876183f51e",
-          "sha256": "d6817ac5ba2f06272cd3514de74ab94a1f95cca653512078e5bc01bf88246c49",
-          "sha1": "1a3eebcdee8369e800d298c51411814cac5cff20",
-          "md5": "6d4a135c87d129c376d52b7de94b0d0b"
+          "size": 19991,
+          "sha512": "a20b2212a3592ad730da80acb2123110027f60e4ed26abd15e031c088c534820f07c260fe7f2395d0128fa5ebb5c454a13e531172c92c39186ff25390f30f1f5",
+          "sha256": "8ec37f8f83b8b103a8b2e89e9e57ce3e5d9ebd02311878e703e212b126e8c329",
+          "sha1": "df88ab6374a0309a9aa8540431d53167c517d646",
+          "md5": "2b785f5699ae575d6d7ec478ec0457a4"
         }
       ]
     }
