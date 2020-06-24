@@ -2,17 +2,14 @@ package io.ossim.swagger
 
 import com.fasterxml.jackson.core.JsonProcessingException
 import io.swagger.annotations.Api
+import io.swagger.models.Swagger
+import io.swagger.servlet.Reader
 import io.swagger.util.Json
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.internal.classloader.ClasspathHasher
 import org.gradle.jvm.tasks.Jar
 import org.reflections.Reflections
-import io.swagger.models.Swagger
-import io.swagger.servlet.Reader
-import org.reflections.util.ClasspathHelper
-import org.reflections.util.ConfigurationBuilder
-import swagger.SwaggerService
+
 import java.util.jar.JarEntry
 import java.util.jar.JarFile
 
@@ -35,13 +32,14 @@ class SwaggerDocPlugin implements Plugin<Project> {
         project.task("generateSwaggerDocs") {
             dependsOn("fatJar")
             doFirst {
+                try { throw new RuntimeException("DEBUG") } catch (e) {/* do nothing */}
                 String fatJarPath = (project.tasks.getByName("fatJar") as Jar).archiveFile.get().asFile.path
                 // TODO: Remove hard coded prefix and use task configuration instead.
                 Swagger swagger = new Swagger()
                 Set<Class> classes = getSwaggerAPIClasses("omar", fatJarPath)
                 println prefix
                 println "Swagger Spec Classes:"
-                for(Class c:classes) {
+                for(Class c: classes) {
                     println c
                 }
                 Reader.read(swagger, classes)
@@ -76,7 +74,7 @@ class SwaggerDocPlugin implements Plugin<Project> {
         JarFile jarFile = new JarFile(jarPath)
         Enumeration<JarEntry> e = jarFile.entries()
         URL[] urls = [new URL("jar:file:$jarPath!/")]
-        URLClassLoader cl = URLClassLoader.newInstance(urls)
+        URLClassLoader cl = URLClassLoader.newInstance(urls, this.class.getClassLoader())
         while (e.hasMoreElements()) {
             JarEntry je = e.nextElement()
             if (je.isDirectory() || !je.getName().endsWith(".class")) {
